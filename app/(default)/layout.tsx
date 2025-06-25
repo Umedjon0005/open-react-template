@@ -25,7 +25,6 @@ export default function DefaultLayout({
     <>
       <main className="relative flex grow flex-col">{children}</main>
 
-      <Footer />
     </>
   );
 }

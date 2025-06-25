@@ -2,13 +2,26 @@ import Logo from "./logo";
 import Image from "next/image";
 import FooterIllustration from "@/public/images/footer-illustration.svg";
 
-export default function Footer() {
+type HeaderProps = {
+  onScrollTo: {
+    about: () => void;
+    projects: () => void;
+    solutions: () => void;
+    contact: () => void;
+  };
+};
+
+export default function Footer({ onScrollTo }: HeaderProps) {
+  const handleClick = (section: () => void) => {
+    section();
+  };
+
   return (
-    <footer>
+    <footer className="relative">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Footer illustration */}
         <div
-          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2"
+          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 opacity-20"
           aria-hidden="true"
         >
           <Image
@@ -19,210 +32,90 @@ export default function Footer() {
             alt="Footer illustration"
           />
         </div>
-        <div className="grid grid-cols-2 justify-between gap-12 py-8 sm:grid-rows-[auto_auto] md:grid-cols-4 md:grid-rows-[auto_auto] md:py-12 lg:grid-cols-[repeat(4,minmax(0,140px))_1fr] lg:grid-rows-1 xl:gap-20">
-          {/* 1st block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Product</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Integrations
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Pricing &amp; Plans
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Changelog
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Our method
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  User policy
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 2nd block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Company</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  About us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Diversity &amp; Inclusion
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Financial statements
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 3rd block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">Resources</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Community
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Terms of service
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Report a vulnerability
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 4th block */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-medium text-gray-200">
-              Content Library
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Templates
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Tutorials
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Knowledge base
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Learn
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Cookie manager
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* 5th block */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 lg:text-right">
-            <div className="mb-3">
-              <Logo />
-            </div>
-            <div className="text-sm">
-              <p className="mb-3 text-indigo-200/65">
-                © Cruip.com
-                <span className="text-gray-700"> · </span>
-                <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="#0"
-                >
-                  Terms
-                </a>
+        
+        {/* Decorative gradient line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-50"></div>
+        
+        <div className="py-12 lg:py-16">
+          {/* Main content */}
+          <div className="mb-12 flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-12">
+            {/* Logo section */}
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="mb-4 transform transition-transform hover:scale-105">
+                <Logo />
+              </div>
+              <p className="text-center text-sm text-indigo-200/80 lg:text-left">
+                Innovative solutions for your business
               </p>
-              <ul className="inline-flex gap-1">
+            </div>
+            
+            {/* Navigation links - horizontal */}
+            <nav className="flex-1">
+              <ul className="flex flex-wrap items-center justify-center gap-8 lg:justify-end">
+                <li>
+                  <button
+                    className="group relative text-sm font-medium text-indigo-200/75 transition-all duration-300 hover:text-white cursor-pointer"
+                    onClick={() => handleClick(onScrollTo.about)}
+                  >
+                    About Us
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="group relative text-sm font-medium text-indigo-200/75 transition-all duration-300 hover:text-white cursor-pointer"
+                    onClick={() => handleClick(onScrollTo.projects)}
+                  >
+                    Projects
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="group relative text-sm font-medium text-indigo-200/75 transition-all duration-300 hover:text-white cursor-pointer"
+                    onClick={() => handleClick(onScrollTo.solutions)}
+                  >
+                    Solutions
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="group relative text-sm font-medium text-indigo-200/75 transition-all duration-300 hover:text-white cursor-pointer"
+                    onClick={() => handleClick(onScrollTo.contact)}
+                  >
+                    Contacts
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          
+          {/* Divider */}
+          <div className="mb-8 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"></div>
+          
+          {/* Bottom section */}
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+            {/* Copyright */}
+            <div className="text-center lg:text-left">
+              <p className="text-sm text-indigo-200/60">
+                © 2024 All rights reserved
+              </p>
+            </div>
+            
+            {/* Social links */}
+            <div className="flex items-center gap-4">
+              <span className="text-xs text-indigo-200/50">Follow us:</span>
+              <ul className="flex gap-3">
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-400 backdrop-blur-sm transition-all duration-300 hover:bg-indigo-500/20 hover:text-indigo-300 hover:scale-110"
                     href="#0"
                     aria-label="Twitter"
                   >
                     <svg
-                      className="h-8 w-8 fill-current"
+                      className="h-5 w-5 fill-current transition-transform group-hover:scale-110"
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -232,12 +125,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-400 backdrop-blur-sm transition-all duration-300 hover:bg-indigo-500/20 hover:text-indigo-300 hover:scale-110"
                     href="#0"
                     aria-label="Medium"
                   >
                     <svg
-                      className="h-8 w-8 fill-current"
+                      className="h-5 w-5 fill-current transition-transform group-hover:scale-110"
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -247,12 +140,12 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    className="flex items-center justify-center text-indigo-500 transition hover:text-indigo-400"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-400 backdrop-blur-sm transition-all duration-300 hover:bg-indigo-500/20 hover:text-indigo-300 hover:scale-110"
                     href="#0"
                     aria-label="Github"
                   >
                     <svg
-                      className="h-8 w-8 fill-current"
+                      className="h-5 w-5 fill-current transition-transform group-hover:scale-110"
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
                     >
