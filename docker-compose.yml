@@ -2,13 +2,14 @@ version: '3.8'
 
 services:
   app:
-    build: ./idev43
+    build: .
+    container_name: node_app
     working_dir: /app
     volumes:
-      - ./idev43:/app
+      - .:/app
       - /app/node_modules
     ports:
-      - "3000:3000"
+      - "9394:9394"
     environment:
       - NODE_ENV=development
     command: npm run dev

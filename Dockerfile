@@ -1,5 +1,5 @@
 # Use the official Node.js runtime as the base image
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set the working directory in the container
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port that Next.js runs on
-EXPOSE 3000
+EXPOSE 9394
 
 # Start the development server
 CMD ["npm", "run", "dev"]
